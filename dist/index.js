@@ -1,8 +1,10 @@
 "use strict";
 
 var _createElement = require("./lib/createElement.js");
+var _render = require("./lib/render.js");
 var RohanReact = {
-  createElement: _createElement.createElement
+  createElement: _createElement.createElement,
+  render: _render.render
 };
 var element = RohanReact.createElement("div", {
   id: "app"
@@ -12,3 +14,4 @@ var element = RohanReact.createElement("div", {
   }
 }, "Click Me"));
 var container = document.getElementById('root');
+RohanReact.render(element, container);

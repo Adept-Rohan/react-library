@@ -1,8 +1,10 @@
 import { createElement } from './lib/createElement.js';
+import { render } from './lib/render.js'
 
 
 const RohanReact = {
     createElement,
+    render
 };
 
 
@@ -14,4 +16,5 @@ const element = (
 );
 
 const container = document.getElementById('root');
+RohanReact.render(element, container)
 

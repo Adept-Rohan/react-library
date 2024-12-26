@@ -1,19 +1,17 @@
+
 export function render(element, container) {
-    // Check if the element is a text element or a regular HTML element
-    const dom =
-        element.type === "TEXT_ELEMENT"
-            ? document.createTextNode(element.props.nodeValue)
-            : document.createElement(element.type);
 
-    // Add properties (like id, class, etc.) to the element
-    const isProperty = key => key !== "children";
-    Object.keys(element.props).filter(isProperty).forEach(name => {
-        dom[name] = element.props[name];
-    });
+    // Creating a DOM element based on it's type.
+    const dom = element.type === "TEXT_ELEMENT" ? document.createTextNode(element.props.nodeValue) : document.createElement(element.type)
 
-    // Render children recursively
-    element.props.children.forEach(child => render(child, dom));
+    // Assigning elements props to the node 
 
-    // Append the current element to the container
-    container.appendChild(dom);
+    const isProperty = key => key !== "children"
+    Object.keys(element.props).filter(isProperty).forEach(name => dom[name] = element.props[name])
+
+    // All the children are now rendered recursively
+    element.props.children.forEach(child => render(child, dom))
+
+    // Appending all the node inside the container 
+    container.appendChild(dom)
 }

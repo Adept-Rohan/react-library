@@ -7,11 +7,11 @@ const RohanReact = {
     render
 };
 
-
+/** @jsx RohanReact.createElement */
 const element = (
     <div id="app">
         <h1>Hello, My React-like Library!</h1>
-        <button onClick={() => alert('You clicked me!')}>Click Me</button>
+        <button>Click Me</button>
     </div>
 );
 

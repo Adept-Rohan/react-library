@@ -22,50 +22,39 @@ module.exports = {
         historyApiFallback: true,
     },
     module: {
-        rules: [{
-            test: /\.css$/i,
-            use: [
-                "style-loader",
-                "css-loader",
-                "postcss-loader"]
-        },
-        {
-            test: /\.(js|jsx|ts|tsx)$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: [
-                        [
-                            '@babel/preset-env',
-                            {
-                                modules: false,
-                            },
+        rules: [
+            {
+                test: /\.(js|jsx|ts|tsx)$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: [
+                            [
+                                '@babel/preset-env',
+                                {
+                                    modules: false,
+                                },
+                            ],
+                            [
+                                '@babel/preset-react',
+                                {
+                                    runtime: 'classic',
+                                },
+                            ],
                         ],
-                        [
-                            '@babel/preset-react',
-                            {
-                                runtime: 'classic',
-                            },
+                        plugins: [
+                            [
+                                'babel-plugin-transform-react-jsx',
+                                {
+                                    pragma: 'RohanReact.createElement',
+                                    pragmaFrag: 'React.Fragment',
+                                },
+                            ],
                         ],
-                    ],
-                    plugins: [
-                        [
-                            'babel-plugin-transform-react-jsx',
-                            {
-                                pragma: 'RohanReact.createElement',
-                                pragmaFrag: 'React.Fragment',
-                            },
-                        ],
-                    ],
+                    },
                 },
             },
-        }
-            ,
-        {
-            test: /\.(png|svg|jpg|jpeg|gif)$/i,
-            type: 'asset/resource',
-        },
         ]
     },
     plugins: [new HtmlWebpackPlugin({

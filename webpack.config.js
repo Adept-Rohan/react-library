@@ -71,6 +71,6 @@ module.exports = {
     plugins: [new HtmlWebpackPlugin({
         title: 'Rohan React',
         filename: 'index.html',
-        template: 'public/index.html'
+        template: 'src/index.html'
     })],
 }

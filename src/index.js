@@ -7,7 +7,7 @@ const RohanReact = {
     render
 };
 
-/** @jsx RohanReact.createElement */
+
 const element = (
     <div id="app">
         <h1>Hello, My React-like Library!</h1>
